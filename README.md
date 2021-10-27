@@ -1,5 +1,13 @@
 # CleaningReminder
 
+This project is made for a old tablet or phone.
+It can be used to display as a clock, while also showing routinely schedules such as watering plants or cleaning the floor.
+Every task can have its own cycle.
+A list will show next to the clock, placing the task that is most due on top.
+If a task is past a due date it will animate red, indicating that this needs to happen as soon as possible.
+Turning a living room clock into a sort of scheduler as well.
+Mostly done for fun.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.6.
 
 ## Development server
