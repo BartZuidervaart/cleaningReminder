@@ -1,0 +1,31 @@
+.aligning{
+    display:flex;
+}
+
+.left{
+    @extend .aligning;
+    margin-left:0px;
+    margin-right:auto;
+}
+
+.center{
+    @extend .aligning;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.right{
+    @extend .aligning;
+    margin-left:auto;
+    margin-right:0px;
+}
+
+mat-icon{
+    vertical-align:middle;
+}
+
+button {
+    text-transform: uppercase;
+    margin-left: 10px;
+    margin-right: 10px;
+}

@@ -1,0 +1,13 @@
+<div *ngFor="let task of getTasks()">
+    <mat-grid-list cols="4" style="width:100%;" mat-ripple rowHeight="50px" class="{{getClass(task)}}" (click)="goToTaskDetail(task)">
+        <div>
+            <mat-grid-tile colspan="3" class="content">
+                {{task.getTitle()}}
+            </mat-grid-tile>
+            <mat-grid-tile class="days" *ngIf="!task.hasNoInternalDaysToGo()">
+                {{task.internalDaysToGo()}}d
+            </mat-grid-tile>
+        </div>
+    </mat-grid-list>
+    <!-- <mat-divider></mat-divider> -->
+</div>

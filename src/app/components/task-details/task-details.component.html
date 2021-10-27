@@ -1,0 +1,88 @@
+<div class="list" *ngIf="hasTask()">
+    <div class="center-item">
+        <h1 style="font-size:2em">
+            {{getCurrentTaskTitle()}}
+        </h1>
+    </div>
+
+    <div class="item">
+        <mat-card class="mat-card-shadow">
+            <mat-card-title>Cycle</mat-card-title>
+            <mat-card-content>
+                <form>
+                    <mat-form-field style="width:100%">
+                        <input matInput type="number" placeholder="{{getCurrentTaskCycle()}}" style="width:100%"
+                            [formControl]="cycleFormControl" />
+                    </mat-form-field>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div class="item">
+        <mat-card class="mat-card-shadow">
+            <mat-card-title>Days to go</mat-card-title>
+            <mat-card-content>
+                {{getCurrentTimeTillDue()}}
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div class="item">
+        <mat-card class="mat-card-shadow">
+            <mat-card-title>Description</mat-card-title>
+            <mat-card-content>
+                <form>
+                    <mat-form-field style="width:100%">
+                        <input matInput type="text" placeholder="{{getCurrentTaskDescription()}}" style="width:100%"
+                            [formControl]="descriptionControl" />
+                    </mat-form-field>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div class="item" *ngIf="getCurrentTask()">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Sub-tasks
+                </mat-panel-title>
+                <mat-panel-description>
+                    number: {{getCurrentTaskSubTasks().length}}
+                </mat-panel-description>
+
+                <mat-panel-description>
+                    task most due: {{getSubTaskMostDueDays()}}d
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <button mat-stroked-button (click)="openDialog()" style="margin-top:2px; margin-bottom:2px;">
+                Add sub-task <mat-icon>add</mat-icon>
+            </button>
+            
+            <button mat-stroked-button (click)="openTask(task)" *ngFor="let task of getCurrentTaskSubTasks()"
+                style="margin-top:2px; margin-bottom:2px;">
+                {{task.getTitle()}} {{task.hasNoInternalDaysToGo() ? '' : '('+task.internalDaysToGo()+'days)'}}
+            </button>
+        </mat-expansion-panel>
+    </div>
+
+    <div class="center-item" *ngIf="inputChanged()">
+        <button mat-raised-button color="accent" (click)="saveChanges()">
+            <mat-icon>save</mat-icon> save
+        </button>
+    </div>
+
+    <div class="center-item">
+        <button mat-raised-button color="primary" (click)="taskIsDone()">
+            <mat-icon>done</mat-icon> done
+        </button>
+    </div>
+
+    <div class="center-item">
+        <button mat-raised-button color="warn" (click)="openDeleteDialog()">
+            <mat-icon>delete</mat-icon> delete
+        </button>
+    </div>
+</div>

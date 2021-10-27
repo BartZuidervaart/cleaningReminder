@@ -1,0 +1,32 @@
+<div>
+    <h2 mat-dialog-title>Add Task</h2>
+    <mat-dialog-content class="window">
+
+        <mat-form-field>
+            <mat-label>Title</mat-label>
+            <input matInput type="text" [formControl]="titleFormControl">
+            <mat-error>
+                Please enter a valid title
+              </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Days till it needs to be cleaned</mat-label>
+            <input matInput type="number" [formControl]="cycleFormControl">
+            <mat-error>
+                Please enter a valid number
+              </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <input matInput type="text" [formControl]="descriptionControl">
+            <mat-error>
+                What is this task? How does it need to be done? Is it dependant on other tasks?
+              </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button style="width:100%" color="primary" (click)="create()">CREATE</button>
+
+    </mat-dialog-content>
+</div>

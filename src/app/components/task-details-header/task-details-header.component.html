@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+    <div class="left">
+        <button mat-button (click)="backToHome()">
+            <mat-icon>keyboard_return</mat-icon> Home
+        </button>
+    </div>
+
+    <div class="center">
+        <div *ngFor="let task of getHierarchy(); let i = index">
+            <mat-icon *ngIf="i != 0">navigate_next</mat-icon>
+            <button mat-raised-button (click)="goToHierarchy(i)">
+                {{task.getTitle()}}
+            </button>
+        </div>
+    </div>
+</mat-toolbar>

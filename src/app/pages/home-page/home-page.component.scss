@@ -1,0 +1,16 @@
+@import '../../../styles.scss';
+
+.left{
+    width:30%; 
+    //max-width:500px; 
+    float:left;
+    height:100%;
+    z-index:2;
+    background-color:#CCC;
+}
+
+.right{
+    float:right;
+    width:70%;
+    height:100%;
+}
